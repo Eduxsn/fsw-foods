@@ -28,11 +28,17 @@ const Restaurants = () => {
     return notFound();
   }
 
+  const capitalizedSearchFor =
+    searchFor?.charAt(0).toUpperCase() + searchFor?.slice(1);
+
   return (
     <>
       <Header />
       <div className="px-5 py-6">
-        <h2 className="mb-6 text-lg font-semibold">Restaurantes Encontrados</h2>
+        <h2 className="mb-6 text-lg font-semibold">
+          {restaurants.length} resultados encontrados para{" "}
+          <span className="font-bold text-primary">{capitalizedSearchFor}</span>
+        </h2>
         <div className="flex flex-col gap-6">
           {restaurants.map((restaurant) => (
             <RestaurantItem
